@@ -1,17 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Entrainez-vous à mémoriser les mots
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" style="padding-top: 5px;">
+<!-- List of Sliding Items -->
+<ion-card (click)="goToPage(1)">
+  <ion-card-header>
+    <ion-card-subtitle>Jeu 1</ion-card-subtitle>
+    <ion-card-title>Retener, masquer et retrouver</ion-card-title>
+  </ion-card-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card-content>
+    <img class="img-demo" src="assets/Exemple_game1.JPG" alt="">
+    Choisissez le nombre de mot à afficher dans les paramètres de l'application.
+    Puis générer au hasard les mots à faire apparaitre.
+    Chaques colonnes et chaques lignes peuvent être masquées. A toi de jouer :)
+  </ion-card-content>
+</ion-card>
+<ion-card (click)="goToPage(2)">
+  <ion-card-header>
+    <ion-card-subtitle>Jeu 2</ion-card-subtitle>
+    <ion-card-title>Retrouver le bon mot</ion-card-title>
+  </ion-card-header>
+  
+  <ion-card-content>
+    <img class="img-demo" src="assets/Exemple_game2.JPG" alt="">
+    Retrouver le bon mot parmit les choix proposés dans un temps imparti
+  </ion-card-content>
+</ion-card>
+
+
+
 </ion-content>
+
+

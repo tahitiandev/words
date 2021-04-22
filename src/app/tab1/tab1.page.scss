@@ -1,0 +1,25 @@
+/* DOES NOT WORK - not specific enough */
+.alert-wrapper {
+    background: #e5e5e5;
+  }
+  
+  /* Works - pass "my-custom-class" in cssClass to increase specificity */
+  .my-custom-class .alert-wrapper {
+    background: #e5e5e5;
+  }
+
+.masquer{
+  transition:1s;
+  background: black;
+  color: black;
+  opacity: 0.6;
+}
+
+.afficher{
+  transition: 1s;
+}
+
+.titre{
+  font-weight: bold;
+  font-size: 20px;
+}

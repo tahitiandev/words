@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ajouter un nouveau mot</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="returnBack()">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <form (ngSubmit)="addWord(f)" #f="ngForm">
+      <ion-item>
+        <ion-label position="floating">Mot Francais</ion-label>
+        <ion-input name="francais" ngModel></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Mot Anglais</ion-label>
+          <ion-input name="anglais" ngModel></ion-input>
+      </ion-item>
+      <ion-button type="submit" expand="block">Ajouter</ion-button>
+  </form>
+
+
+
+</ion-content>

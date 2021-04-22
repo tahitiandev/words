@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Jeu 2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <h2 style="text-align: center; font-size: 50px; margin-top: 100px; font-weight: bold;">{{ motAChercher.anglais.word | titlecase }}</h2>
+
+  <ion-grid style="margin-top: 200px;">
+    <ion-row>
+      <ion-col *ngFor="let word of choixReponsePropose">
+        <h3 style="text-align: center;" (click)="VerifieReponse(word.bonMot)"><center>{{ word.francais | titlecase }}</center></h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="phraseAAfficher" *ngIf="panelReponseShow">{{phraseAafficher}}</div>
+
+</ion-content>

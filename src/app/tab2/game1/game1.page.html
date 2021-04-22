@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Jeu 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="padding-top: 5px;">
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="getRandomWord()">
+      <ion-icon name="sync-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <center class="titre">Francais</center> 
+            <ion-button *ngIf="hideFrancais === false" (click)="toutMasquerFrancais()" color="dark" expand="block">Masquer</ion-button>
+            <ion-button *ngIf="hideFrancais === true" (click)="toutAfficherFrancais()" color="primary" expand="block">Afficher</ion-button>
+          </ion-col>
+          <ion-col>
+            <center class="titre">Anglais</center> 
+            <ion-button *ngIf="hideAnglais === false" (click)="toutMasquerAnglais()" color="dark" expand="block">Masquer</ion-button>
+            <ion-button *ngIf="hideAnglais === true" (click)="toutAfficherAnglais()" color="primary" expand="block">Afficher</ion-button>
+          </ion-col>
+        </ion-row>  
+      </ion-grid>
+    </ion-item>
+
+    <!-- Multi-line sliding item with icon options on both sides -->
+    <ion-item-sliding *ngFor="let word of listeOfRandomWord; let i = index">
+      <!-- <ion-item href="#"> -->
+      <ion-item>
+  
+          <ion-grid>
+          <ion-row>
+            <ion-col index="i" (click)="toggleHideWord(i,'francais')" [ngClass]="{masquer : word.francais.hide === true, afficher : word.francais.hide === false}">
+                {{word.francais.word | titlecase }}
+              </ion-col>
+              <ion-col index="i" (click)="toggleHideWord(i,'anglais')" [ngClass]="{masquer : word.anglais.hide === true, afficher : word.francais.hide === false}">
+                {{word.anglais.word | titlecase }}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+  
+      </ion-item>
+  
+      <ion-item-options side="start">
+        <ion-item-option>
+          <ion-icon slot="icon-only" name="heart"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+  
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+        <ion-item-option>
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+      
+</ion-content>

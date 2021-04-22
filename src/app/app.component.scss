@@ -1,0 +1,64 @@
+/*****************************
+
+		LOGO DU SITE
+
+******************************/
+.container-splash{
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: green;
+    box-shadow: inset 5px 10px 45px black;
+}
+#container-logo{
+    width: 100px;
+    margin-top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#container-logoforum{
+	width: 100px;
+	margin-top: 15px;
+}
+
+#container-logo a{
+	text-decoration: none;
+}
+
+#titre-logo{
+	text-align: center;
+	color: black;
+	font-size: 130%;
+	font-family: Pacifico;
+}
+
+#img-logo{
+	display: block;
+	margin: auto;
+	width: 60px;
+	animation-name: eyerotate;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+
+}
+
+@keyframes eyerotate{
+	100%{
+
+		transform: rotateY(360deg);
+
+	}
+
+}
+.titreSplash{
+	// background: chartreuse;
+	text-align: center;
+	padding-top: 45%;
+	// padding-left: 180px;
+	// margin-top: 65%;
+}
+.spinner{
+	position: absolute;
+	top: 45%;
+	left: 49%;
+}

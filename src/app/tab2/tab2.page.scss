@@ -1,0 +1,20 @@
+.masquer{
+    transition:1s;
+    background: black;
+    color: black;
+    opacity: 0.6;
+  }
+  
+  .afficher{
+    transition: 1s;
+  }
+
+  .titre{
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .img-demo{
+    width: 50%;
+    display: block; margin:auto;
+  }

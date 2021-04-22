@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
+  },
+  {
+    path: 'set-word',
+    loadChildren: () => import('./set-word/set-word.module').then( m => m.SetWordPageModule)
   }
 ];
 
