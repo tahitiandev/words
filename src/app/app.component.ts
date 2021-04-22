@@ -10,6 +10,7 @@ import { Words } from './models/words';
 import { SynchronisationService } from './services/synchronisation.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { DataSnapshot } from '@angular/fire/database/interfaces';
+import { UtilityService } from './services/utility.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -25,7 +26,8 @@ export class AppComponent {
     private storage : Storage,
     private settingService : SettingService,
     private synchro : SynchronisationService,
-    private firebase : AngularFireDatabase
+    private firebase : AngularFireDatabase,
+    private utility : UtilityService
     ) {
       this.initializeApp();
     }
@@ -78,7 +80,9 @@ export class AppComponent {
       this.initSettingStorage()
       this.initTheme();
       this.initWords();
-
+      // this.utility.MettreAJourWordsStorage()
+      this.storage.get('words').then(s => console.log(s))
+      
     }).finally(()=> {
       setTimeout(() => {
         this.showSplash = false

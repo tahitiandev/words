@@ -25,17 +25,16 @@ export class Tab1Page implements OnInit  {
 
   ngOnInit(){
     this.initWord()
-    this.storage.get('words').then(s => console.log(s))
   }
 
   async initWord(){
-    await this.storage.get('words').then((words)=>{
-      this.words = words
-    })
+    const words = await this.storage.get('words')
+    this.words = words
   }
 
-  supprimeUnMot(index:number){
-    this.storageService.deleteWord(index)
+  async supprimeUnMot(index:number){
+    await this.storageService.deleteWord(index)
+    this.initWord()
   }//supprimeUnMot
 
   async ajouterUnMot() {

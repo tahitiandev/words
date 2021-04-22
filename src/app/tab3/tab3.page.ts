@@ -127,12 +127,32 @@ export class Tab3Page {
 
 
 
-  addDataToFirebase() {
-    this.storage.get('words').then(words => {
-      this.firebase.database.ref('/words').set(words)
-      this.popupInformation('Les données ont bien été envoyées sur firebase')
-    })
-    
+  async addDataToFirebase() {
+    const words = await this.storage.get('words')
+    await this.firebase.database.ref('/words').set(words)
+    this.popupInformation('Les données ont bien été envoyées sur firebase')
+  }
+
+  async PASFINIaddWordNotToSyncToFirebase(){
+    const words = await this.storage.get('words')
+    for(let word of words){
+
+      if(!word.syncToFirebase){
+        this.firebase.list('wordsTest').push({
+          anglais : {
+            word : word.anglais.word,
+            hide : false
+          },
+          francais : {
+            word : word.anglais.word,
+            hide : false
+          },
+          syncToFirebase : true
+        });
+      }//if
+    }// for
+
+
   }
   
   getDataFromFirebase(){
