@@ -33,8 +33,28 @@ export class Tab1Page implements OnInit  {
   }
 
   async supprimeUnMot(index:number){
-    await this.storageService.deleteWord(index)
-    this.initWord()
+    const alert = await this.alertController.create({
+      header: 'Attention',
+      message: 'Etes-vous sur de vouloir supprimer le mot ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+          }
+        }, {
+          text: 'Supprimer',
+          handler: () => {
+            this.storageService.deleteWord(index)
+            this.initWord()
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+
   }//supprimeUnMot
 
   async ajouterUnMot() {
@@ -146,5 +166,9 @@ export class Tab1Page implements OnInit  {
     this.storageService.toutMasquerLesMotsFrancais().then(s => this.words = s)
     this.hideFrancais = true
   }//toutMasquerFrancais
+
+  allerArechercheWeb(){
+    this.navigate.navigateRoot('tabs/tab1/recherche-web')
+  }
 
 }

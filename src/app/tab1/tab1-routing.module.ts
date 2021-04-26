@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'set-word',
     loadChildren: () => import('./set-word/set-word.module').then( m => m.SetWordPageModule)
+  },
+  {
+    path: 'recherche-web',
+    loadChildren: () => import('./recherche-web/recherche-web.module').then( m => m.RechercheWebPageModule)
   }
 ];
 

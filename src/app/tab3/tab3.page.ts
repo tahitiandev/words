@@ -75,7 +75,7 @@ export class Tab3Page {
   }
 
   async popupInformation(message : string){
-        const alert = await this.alertController.create({
+      const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Information',
       message: message,

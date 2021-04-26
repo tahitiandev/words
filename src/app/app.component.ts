@@ -80,8 +80,6 @@ export class AppComponent {
       this.initSettingStorage()
       this.initTheme();
       this.initWords();
-      // this.utility.MettreAJourWordsStorage()
-      this.storage.get('words').then(s => console.log(s))
       
     }).finally(()=> {
       setTimeout(() => {

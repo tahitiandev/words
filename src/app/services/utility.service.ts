@@ -14,16 +14,16 @@ export class UtilityService {
   // Permet de mettre à jour le localstorage "words"
   // ici j'ai rajouté le flague syncToFirebase : true
   MettreAJourWordsStorage(){
-    this.storage.get('words').then(wordInStorage => {     
+    this.storage.get('words').then(words => {     
 
-      for(let word of wordInStorage){
+      for(let word of words){
         this.wordWithFirebase.push({
           anglais : {
             word : word.anglais.word,
             hide : false
           },
           francais : {
-            word : word.anglais.word,
+            word : word.francais.word,
             hide : false
           },
           syncToFirebase : true
